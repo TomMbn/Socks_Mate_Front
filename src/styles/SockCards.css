@@ -1,0 +1,10 @@
+.sockCardsContainer {
+    height: 100vh;
+    display: flex;
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  

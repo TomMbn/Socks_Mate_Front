@@ -1,0 +1,20 @@
+.textarea-field {
+    margin-bottom: 20px;
+  }
+  
+  .textarea {
+    width: 88%;
+    padding: 15px;
+    border: 2px solid #92140C;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #1E1E24;
+    background-color: #FFF8F0;
+    resize: none;
+  }
+  
+  .textarea:focus {
+    outline: none;
+    border-color: #740f08;
+  }
+  

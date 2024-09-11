@@ -1,0 +1,19 @@
+  .navbarContainer {
+    background-color: #fff8f0;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0;
+    align-items: center;
+    padding: 10px 35px;
+  }
+  
+  .navIcon {
+    font-size: 24px;
+    color: #1e1e24;
+    cursor: pointer;
+  }
+  
+  .navIcon:hover {
+    color: #92140c;
+  }
+  

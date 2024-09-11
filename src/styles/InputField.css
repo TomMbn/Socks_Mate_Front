@@ -1,0 +1,27 @@
+.inputField {
+    margin-bottom: 20px;
+  }
+  
+  .inputLabel {
+    display: block;
+    color: #1E1E24;
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  
+  .input {
+    width: 87%;
+    padding: 15px;
+    border: 2px solid #92140C;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #1E1E24;
+    background-color: #FFF8F0;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #740f08;
+  }
+  

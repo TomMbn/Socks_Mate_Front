@@ -1,0 +1,50 @@
+  .card {
+    background-color: #1e1e24;
+    color: #fff8f0;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sock-image {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .sock-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .description {
+    font-size: 14px;
+    color: #fff8f0;
+    margin-bottom: 20px;
+  }
+  
+  .message-button {
+    background-color: #92140c;
+    color: #fff8f0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .message-button:hover {
+    opacity: 0.9;
+  }
+  
+  .heart-icon {
+    color: #92140c;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
