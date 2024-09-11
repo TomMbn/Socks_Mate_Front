@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Message from './pages/Message';
 import Like from './pages/Like';
+import SockLikeCard from './components/SockLikeCard';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/profile' element={<Profile />}/>
         <Route path='/message' element={<Message />}/>
         <Route path='/like' element={<Like />}/>
+        <Route path="/sock/:id" element={<SockLikeCard />} />
       </Routes>
     </Router>
   )

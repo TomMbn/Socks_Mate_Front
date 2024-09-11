@@ -1,0 +1,92 @@
+ .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    border: 2px solid #92140C;
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #92140C;
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 0 10px;
+  }
+  
+  .tabs button.active {
+    background-color: #92140C;
+    color: white;
+  }
+  
+  .tabs button:hover {
+    background-color: #ffebe5;
+  }
+  
+  .sock-list {
+    margin-bottom: 50px;
+  }
+  
+  .sock-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #92140C;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .sock-banner:hover {
+    background-color: #a93226;
+  }
+  
+  .banner-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .view-profile {
+    font-size: 12px;
+    text-decoration: underline;
+    color: #FFF8F0;
+  }
+
+  .back-button {
+    background-color: #1E1E24;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .back-button:hover {
+    background-color: #333;
+  }
+  
+  /* Footer icons */
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #CCC;
+  }
+  
+  .icon {
+    font-size: 24px;
+    color: #1E1E24;
+  }
+  
+  .icon.heart-icon {
+    color: #92140C;
+  }
+  

@@ -17,8 +17,10 @@ const SockCard: React.FC<SockCardProps> = ({ sockName, sockSize, description, im
         <span>{sockSize}</span>
       </div>
       <p className="description">{description}</p>
-      <span className="heart-icon">❤️</span>
-      <button className="message-button">Message</button>
+      <div className="footerCard">
+        <span className="heart-icon">❤️</span>
+        <button className="message-button">Message</button>
+      </div>
     </div>
   );
 };
