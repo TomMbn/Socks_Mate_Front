@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import SockCard from './SockCard';
-import { useSwipeable } from 'react-swipeable';
 import '../styles/SockCards.css';
 
 interface User {
