@@ -42,7 +42,7 @@ const SignupForm: React.FC = () => {
       });
 
       // Requête vers le backend pour l'inscription
-      const response = await fetch(`${import.meta.env.VITE_URI_API}/addUser`, {
+      const response = await fetch(`${import.meta.env.VITE_URI_API}/users/`, {
         method: 'POST',
         body: formDataToSend,
       });

@@ -6,8 +6,10 @@ const Feed: React.FC = () =>{
         <div className="Container">
             <div className="feedContent">
                 <h1 className="Title">Sock's Mate</h1>
-                <SockCards userId={1}/>
+                <SockCards/>
+                <div className="containerNavbar">
                 <Navbar />
+                </div>
             </div>
       </div>
     )

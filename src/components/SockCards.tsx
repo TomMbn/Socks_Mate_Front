@@ -3,56 +3,66 @@ import SockCard from './SockCard';
 import { useSwipeable } from 'react-swipeable';
 import '../styles/SockCards.css';
 
-interface Sock {
-  id: number;
-  name: string;
+interface User {
+  biography: string;
+  _id: string;
+  username: string;
   size: string;
-  description: string;
-  imageUrl: string;
-  userId: number;
+  // Ajoute d'autres champs si nécessaire
 }
 
-const SockCards: React.FC<{ userId: number }> = ({ userId }) => {
-  const [socks, setSocks] = useState<Sock[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+const SockCards: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`/socks?userId=${userId}`) //Remplacer par le bon URL pour récupérer les chaussettes
-      .then((res) => res.json())
-      .then((data) => setSocks(data))
-      .catch((err) => console.error("Erreur lors du chargement des chaussettes :", err));
-  }, [userId]);
-
-  const handlers = useSwipeable({
-    onSwipedUp: () => handleSwipe('up'),
-    onSwipedDown: () => handleSwipe('down'),
-    preventScrollOnSwipe: true,
-    trackMouse: true,
-  });
-
-  const handleSwipe = (direction: 'up' | 'down') => {
-    if (direction === 'up') {
-      if (currentIndex < socks.length - 1) {
-        setCurrentIndex(currentIndex + 1);
+    const fetchUsers = async () => {
+      try {
+        const token = sessionStorage.getItem('token');
+        const response = await fetch('http://localhost:3000/users', {
+          method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+        });
+        if (!response.ok) {
+          throw new Error('Erreur lors de la récupération des utilisateurs');
+        }
+        const usersData = await response.json();
+        setUsers(usersData);
+      } catch (err) {
+        console.error('Erreur lors du chargement des utilisateurs :', err);
+        setError('Erreur lors du chargement des utilisateurs.');
       }
-    } else {
-      if (currentIndex > 0) {
-        setCurrentIndex(currentIndex - 1);
-      }
-    }
-  };
+    };
 
+    fetchUsers();
+  }, []);
+
+  const loggedInUserId = sessionStorage.getItem('userId') || '';
+  
   return (
-    <div {...handlers} className="sockCardsContainer">
-      {socks.length > 0 ? (
-        <SockCard
-          sockName={socks[currentIndex].name}
-          sockSize={socks[currentIndex].size.toString()}
-          description={socks[currentIndex].description}
-          imageUrl={socks[currentIndex].imageUrl}
-        />
+    <div className="userListContainer">
+      {error && <p>{error}</p>}
+      {users.length > 0 ? (
+        <div className="sockCardsContainer">
+          {users
+            .filter(user => user._id !== loggedInUserId) // Exclure l'utilisateur connecté
+            .map(user => (
+              <SockCard
+                key={user._id}
+                sockName={user.username}
+                sockSize={user.size}
+                description={user.biography || ''} // Ajoute une valeur par défaut pour description
+                imageUrl="" // Remplace par l'URL d'image si disponible
+                userId={user._id} onLike={function (userId: string): void {
+                  throw new Error('Function not implemented.');
+                } }                />
+            ))}
+        </div>
       ) : (
-        <p>Chargement des chaussettes...</p>
+        <p>Chargement des utilisateurs...</p>
       )}
     </div>
   );

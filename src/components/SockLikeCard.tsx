@@ -26,21 +26,21 @@ const SockLikeCard: React.FC = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:3000/users/${id}`, {
+        
+        const response = await fetch(`${import.meta.env.VITE_URI_API}/users/${id}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
-        });
+        });console.log(response.json);
 
         if (response.ok) {
           const user = await response.json();
-          // Supposons que les détails de la chaussette se trouvent dans l'objet utilisateur.
           setSelectedSock({
-            sockName: user.sockName || 'Nom non disponible',
-            sockSize: user.sockSize || 'Taille non disponible',
-            description: user.description || 'Description non disponible',
+            sockName: user.username || 'Nom non disponible',
+            sockSize: user.size || 'Taille non disponible',
+            description: user.biography || 'Description non disponible',
             imageUrl: user.imageUrl || '', // Assure-toi que `imageUrl` existe dans la réponse.
           });
         } else {
@@ -68,8 +68,9 @@ const SockLikeCard: React.FC = () => {
           sockName={selectedSock.sockName}
           sockSize={selectedSock.sockSize}
           description={selectedSock.description}
-          imageUrl={selectedSock.imageUrl}
-        />
+          imageUrl={selectedSock.imageUrl} userId={''} onLike={function (userId: string): void {
+            throw new Error('Function not implemented.');
+          } }        />
       </div>
       <Navbar />
     </div>
