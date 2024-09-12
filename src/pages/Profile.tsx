@@ -16,10 +16,12 @@ const Profile: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/users/66e295e7d432b18ff96bddc5', {
+                const token = sessionStorage.getItem('token');
+                const userId = sessionStorage.getItem('userId');
+                const response = await fetch(`${import.meta.env.VITE_URI_API}/users/${userId}`, {
                     method: 'GET',
                     headers: {
-                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmUyOTVlN2Q0MzJiMThmZjk2YmRkYzUiLCJpYXQiOjE3MjYxMjU1NDN9.IWRhQIAH_2Qxua7DQ07jv8RBxgHoZyX1wu5MygaAOb4',
+                        'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json',
                     },
                 });

@@ -5,7 +5,6 @@ interface InputFieldProps {
   label: string;
   name: string;
   type?: string;
-  value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -13,7 +12,6 @@ const InputField: React.FC<InputFieldProps> = ({
   label,
   name,
   type = 'text',
-  value,
   onChange,
 }) => {
   return (
@@ -26,7 +24,6 @@ const InputField: React.FC<InputFieldProps> = ({
         id={name}
         name={name}
         type={type}
-        value={value}
         onChange={onChange}
         accept='image/*'
         required
