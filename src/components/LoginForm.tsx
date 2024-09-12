@@ -7,11 +7,13 @@ import '../styles/signupForm.css';
 import '../styles/ImportField.css';
 
 const SignupForm: React.FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -21,10 +23,33 @@ const SignupForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate('/feed');
-    console.log('Form data:', formData);
+    setErrorMessage('');
+    console.log(formData);
+    try { 
+      const response = await fetch(`${import.meta.env.VITE_URI_API}/users/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      console.log (response);
+      if (response.ok) {
+        sessionStorage.setItem('token', data.token);
+        sessionStorage.setItem('userId', data.userId);
+        navigate('/feed');
+        
+      } else {
+        setErrorMessage(data.message || 'Erreur lors de la connexion');
+      }
+    } catch (error) {
+      console.error('Erreur lors de la requête:', error);
+      setErrorMessage('Erreur serveur. Veuillez réessayer plus tard.');
+    }
   };
 
   return (
@@ -42,6 +67,10 @@ const SignupForm: React.FC = () => {
         value={formData.password}
         onChange={handleChange}
       />
+      
+      {/* Affiche un message d'erreur si nécessaire */}
+      {errorMessage && <p className="error">{errorMessage}</p>}
+
       <button className="submitBtn" type="submit">
         Se connecter
       </button>
