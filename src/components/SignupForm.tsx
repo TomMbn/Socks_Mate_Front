@@ -84,7 +84,7 @@ const SignupForm: React.FC = () => {
         label="Choisissez une photo"
         name="picture"
         type='file'
-        onChange={(e) => {
+        onChange={() => {
         }}
       />
       <TextAreaField

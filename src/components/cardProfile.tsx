@@ -18,7 +18,7 @@ export const CardProfile: React.FC<CardProfileProps> = ({
             <div className="circle">
                 <img src={urlImage} alt="" />
             </div>
-            <div className="card">
+            <div className="card-profil">
                 <div className="flex-row">
                     <p>{sockName}</p>
                     <p>{size}</p>
