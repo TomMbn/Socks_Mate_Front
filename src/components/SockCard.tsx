@@ -1,5 +1,8 @@
 import React from "react";
 import '../styles/SockCard.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 
 interface SockCardProps {
   sockName: string;
@@ -18,7 +21,7 @@ const SockCard: React.FC<SockCardProps> = ({ sockName, sockSize, description, im
       </div>
       <p className="description">{description}</p>
       <div className="footerCard">
-        <span className="heart-icon">❤️</span>
+        <span className="heart-icon"> <FontAwesomeIcon icon={faHeart} /></span>
         <button className="message-button">Message</button>
       </div>
     </div>

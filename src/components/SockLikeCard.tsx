@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import SockCard from './SockCard';
 import Navbar from './Navbar';
+import '../styles/SockLikeCard.css';
 
 const SockLikeCard: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -20,9 +21,9 @@ const SockLikeCard: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='LikeCardContainer'>
       <h1>Sock's Mate</h1>
-      <div className='container'>
+      <div className='LikeCardContent'>
       <SockCard 
         sockName={selectedSock.sockName}
         sockSize={selectedSock.sockSize}

@@ -1,4 +1,4 @@
-  .container {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,11 +6,16 @@
   }
   
   .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 75%;
     background-color: #1e1e24;
     color: #fff8f0;
     border-radius: 20px;
     padding: 20px;
-    width: 300px;
+    margin: 0 auto;
+    height: 65vh;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -18,11 +23,12 @@
   .footerCard{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    margin: 0 15px;
   }
   
   .sock-image {
-    width: 150px;
+    width: 100%;
     height: auto;
     margin-bottom: 20px;
   }
@@ -44,7 +50,7 @@
   .message-button {
     background-color: #92140c;
     color: #fff8f0;
-    padding: 10px 35px;
+    padding: 13px 40px;
     border: none;
     border-radius: 15px;
     font-size: 16px;

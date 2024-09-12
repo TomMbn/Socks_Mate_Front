@@ -1,6 +1,13 @@
+ .like{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+ }
+ 
  .tabs {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-bottom: 20px;
   }
   
@@ -26,6 +33,7 @@
   
   .sock-list {
     margin-bottom: 50px;
+    padding: 0 35px;
   }
   
   .sock-banner {
