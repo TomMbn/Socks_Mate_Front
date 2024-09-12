@@ -35,6 +35,7 @@ const SignupForm: React.FC = () => {
     setIsSubmitting(true); // Empêche la soumission multiple
 
     try {
+      console.log(formData);
       // Prépare les données du formulaire
       const formDataToSend = new FormData();
       Object.keys(formData).forEach(key => {
