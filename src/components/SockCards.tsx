@@ -7,6 +7,7 @@ interface User {
   _id: string;
   username: string;
   size: string;
+  urlImage: string;
   // Ajoute d'autres champs si nécessaire
 }
 
@@ -54,7 +55,7 @@ const SockCards: React.FC = () => {
                 sockName={user.username}
                 sockSize={user.size}
                 description={user.biography || ''} // Ajoute une valeur par défaut pour description
-                imageUrl="" // Remplace par l'URL d'image si disponible
+                imageUrl={user.urlImage} // Remplace par l'URL d'image si disponible
                 userId={user._id}/>
             ))}
         </div>
