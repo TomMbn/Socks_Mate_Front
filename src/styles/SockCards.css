@@ -1,5 +1,16 @@
+#root{
+  justify-content: space-between;
+}
+
+.feedContent {
+  height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .sockCardsContainer {
-    height: 84vh;
+    height: 70vh;
     display: flex;
     margin-bottom: 0;
     align-items: center;
