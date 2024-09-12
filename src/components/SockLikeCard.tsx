@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import '../styles/SockLikeCard.css';
 
 const SockLikeCard: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>(); // L'ID du user passé en paramètre
   const [selectedSock, setSelectedSock] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -26,14 +26,13 @@ const SockLikeCard: React.FC = () => {
       }
 
       try {
-        
         const response = await fetch(`${import.meta.env.VITE_URI_API}/users/${id}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
-        });console.log(response.json);
+        });
 
         if (response.ok) {
           const user = await response.json();
@@ -41,7 +40,8 @@ const SockLikeCard: React.FC = () => {
             sockName: user.username || 'Nom non disponible',
             sockSize: user.size || 'Taille non disponible',
             description: user.biography || 'Description non disponible',
-            imageUrl: user.imageUrl || '', // Assure-toi que `imageUrl` existe dans la réponse.
+            imageUrl: user.imageUrl || '',
+            userId: user._id, // Utilisateur récupéré, ajout de l'ID ici
           });
         } else {
           setErrorMessage('Erreur lors de la récupération des détails de la chaussette.');
@@ -68,9 +68,9 @@ const SockLikeCard: React.FC = () => {
           sockName={selectedSock.sockName}
           sockSize={selectedSock.sockSize}
           description={selectedSock.description}
-          imageUrl={selectedSock.imageUrl} userId={''} onLike={function (userId: string): void {
-            throw new Error('Function not implemented.');
-          } }        />
+          imageUrl={selectedSock.imageUrl} 
+          userId={selectedSock.userId}
+        />
       </div>
       <Navbar />
     </div>
@@ -78,3 +78,4 @@ const SockLikeCard: React.FC = () => {
 };
 
 export default SockLikeCard;
+

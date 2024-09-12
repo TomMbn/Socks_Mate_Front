@@ -10,3 +10,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.LikeCardContent{
+    margin-bottom: 50px;
+}

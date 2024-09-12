@@ -19,7 +19,7 @@ const SockCards: React.FC = () => {
     const fetchUsers = async () => {
       try {
         const token = sessionStorage.getItem('token');
-        const response = await fetch('http://localhost:3000/users', {
+        const response = await fetch(`${import.meta.env.VITE_URI_API}/users`, {
           method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -56,9 +56,7 @@ const SockCards: React.FC = () => {
                 sockSize={user.size}
                 description={user.biography || ''} // Ajoute une valeur par défaut pour description
                 imageUrl="" // Remplace par l'URL d'image si disponible
-                userId={user._id} onLike={function (userId: string): void {
-                  throw new Error('Function not implemented.');
-                } }                />
+                userId={user._id}/>
             ))}
         </div>
       ) : (

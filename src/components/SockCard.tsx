@@ -8,17 +8,16 @@ interface SockCardProps {
   sockSize: string;
   description: string;
   imageUrl: string;
-  userId: string;
-  onLike: (userId: string) => void;
+  userId: string; // Ajoute l'ID de l'utilisateur pour qui la carte est affichée
 }
 
-const SockCard: React.FC<SockCardProps> = ({ sockName, sockSize, description, imageUrl, userId, onLike }) => {
+const SockCard: React.FC<SockCardProps> = ({ sockName, sockSize, description, imageUrl, userId }) => {
   const [liked, setLiked] = useState(false);
 
   const handleLike = async () => {
     try {
       const token = sessionStorage.getItem('token');
-      const response = await fetch(`http://localhost:3000/users/${userId}/like`, { 
+      const response = await fetch(`${import.meta.env.VITE_URI_API}/users/${userId}/like`, { // Assure-toi que l'URL est correcte
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -30,8 +29,7 @@ const SockCard: React.FC<SockCardProps> = ({ sockName, sockSize, description, im
       }
       const result = await response.json();
       console.log(result.message);
-      setLiked(true); 
-      onLike(userId);
+      setLiked(true); // Met à jour l'état pour refléter le like
     } catch (err) {
       console.error('Erreur lors de l\'ajout du like :', err);
     }
