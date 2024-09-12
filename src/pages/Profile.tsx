@@ -43,7 +43,7 @@ const Profile: React.FC = () => {
     }
 
     return(
-        <div className="Container">
+        <div className="container-profil">
             <h1 className="Title">Sock's Mate</h1>
             {data ? (
                 <CardProfile
@@ -55,8 +55,14 @@ const Profile: React.FC = () => {
             ) : (
                 <p>Chargement des informations...</p>
             )}
-            <a href="#">Modifier mon profil</a>
-            <a href="#">Paramètres</a>
+            <ul className="link">
+                <li>
+                    <a href="#">Modifier mon profil</a>
+                </li>
+                <li>
+                    <a href="#">Paramètres</a>
+                </li>
+            </ul>
             <Navbar />
         </div>
     )

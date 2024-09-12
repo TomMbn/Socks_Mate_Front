@@ -1,3 +1,11 @@
+.container-profil {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 30px;
+}
+
 .circle {
     width: 150px;
     height: 150px;
@@ -14,14 +22,30 @@
     width: 60%;
 }
 
-.card > p {
+.card-profil > p {
     color: white;
     font-size: 16px;
+    text-align: left;
 }
 
-.card>div>p {
+.card-profil>div>p {
     color: white;
     font-size: 20px;
+    font-weight: 700;
+}
+
+.card-profil {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    background-color: #1e1e24;
+    color: #fff8f0;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 0 auto;
+    height: fit-content;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .flex-row {
@@ -30,4 +54,21 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 50px;
+}
+
+.link {
+    flex:1
+}
+
+.link > li {
+    list-style: none;
+}
+
+.link>li>a {
+    color: black;
+}
+
+.link>li>a:hover {
+    color: black;
+    text-decoration: underline;
 }
