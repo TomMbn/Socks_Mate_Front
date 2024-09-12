@@ -1,0 +1,33 @@
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #92140C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -20%;
+    z-index: 10;
+}
+
+.circle > img {
+    width: 60%;
+}
+
+.card > p {
+    color: white;
+    font-size: 16px;
+}
+
+.card>div>p {
+    color: white;
+    font-size: 20px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
